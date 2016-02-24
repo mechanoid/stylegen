@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TBD</title>
+
+  <!-- TODO: make css deps more dynamic, maybe allow tag reference here -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+    <!-- SYLEGEN: dependencies.templates.head -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  background: #fff;
+</style>
+
+    <!-- SYLEGEN: dependencies.templates.head (end) -->
+
+  <!-- TODO: allow head js tags -->
+</head>
+<body>
+
+  <a class="btn btn-primary active" >active</a>
+
+
+
+    <!-- SYLEGEN: dependencies.templates.bottom -->
+    <script>
+  console.log("Script included as a bottom template");
+</script>
+
+    <!-- SYLEGEN: dependencies.templates.bottom (end) -->
+
+  <script type="text/javascript">
+  (function(){
+    "use strict";
+
+    var frameHeight = 0, elements, i, element, isVisible;
+    // element.getBoundingClientRect().top
+    // visible => element.ownerDocument
+
+    var checks = {
+      isIgnoredTag: function(element) {
+        var ignoredTags = {
+          "SCRIPT": true,
+          "LINK": true,
+          "META": true
+        };
+
+        return ignoredTags[element.tagName];
+      },
+
+      isHidden: function(element) {
+        return element.offsetWidth <= 0 && element.offsetHeight <= 0 && !element.getClientRects().length;
+      },
+
+      isVisible: function(element) {
+        return !checks.isHidden(element);
+      }
+    };
+
+    var pxAsDecimal = function(value) {
+      var stripped;
+      if (Boolean(value) && /.*?px/.test(value)) {
+        stripped = value.slice(0, value.indexOf("px"));
+        return parseFloat(stripped);
+      }
+
+      return 0;
+    };
+
+    var checkFrameHeight = function() {
+      var elements = document.body.getElementsByTagName('*'), i, element, isVisible, dimensions, computedStyle, bottomMargin;
+
+      for (i = elements.length; i--;) {
+        element = elements[i];
+        isVisible = checks.isVisible(element);
+
+        switch(true) {
+          case (isVisible && checks.isIgnoredTag(element)):
+            break;
+          default:
+            dimensions = element.getBoundingClientRect();
+            computedStyle = element.currentStyle || window.getComputedStyle(element);
+            bottomMargin = pxAsDecimal(computedStyle.marginBottom);
+            frameHeight = Math.max(frameHeight, dimensions.top + dimensions.height + bottomMargin);
+        }
+      }
+
+      document.body.setAttribute('data-frame-height', frameHeight);
+
+      setTimeout(checkFrameHeight, 500);
+    };
+
+    checkFrameHeight();
+  }());
+
+  </script>
+</body>
+</html>

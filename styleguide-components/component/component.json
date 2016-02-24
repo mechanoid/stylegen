@@ -1,5 +1,0 @@
-{
-  "id": "component"
-  , "view": "component_view.hbs"
-  , "namespace": "sg"
-}

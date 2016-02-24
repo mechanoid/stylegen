@@ -1,8 +1,0 @@
-node_modules
-typings
-bin/**/*.js
-src/**/*.js
-example/styleguide
-ts-build
-
-test/functional/results/**/*

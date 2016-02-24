@@ -1,7 +1,0 @@
-label: Search Form
-tags:
-  - moleculars
-  - forms
-view: search_form_view.hbs
-docs:
-  business: business.md

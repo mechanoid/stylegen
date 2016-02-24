@@ -1,0 +1,325 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  line-height: 1;
+  font-family: sans-serif;
+}
+iframe {
+  border: 0;
+}
+main {
+  display: block;
+}
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+li {
+  display: block;
+}
+dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+dd {
+  margin-left: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: inherit;
+}
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+sup {
+  position: relative;
+  top: -0.5em;
+  vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+}
+strong {
+  font-weight: bold;
+}
+figure {
+  margin: 0;
+}
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-transform: inherit;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  letter-spacing: inherit;
+  background: none;
+  cursor: pointer;
+  overflow: visible;
+}
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #fafafa;
+  color: #000005;
+  font-family: 'Lato', sans-serif;
+}
+p {
+  color: #202020;
+}
+.nav-toggle {
+  font-size: 0;
+  visibility: hidden;
+  display: inline-block;
+}
+.nav-toggle:before {
+  font-size: 1rem;
+  visibility: visible;
+}
+.nav-toggle:before {
+  border: 1px solid #000005;
+  font-size: 2rem;
+  padding: 0.3rem 0.8rem;
+}
+.nav-bar-title {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+  display: inline-block;
+  font-size: 1.125rem;
+  text-transform: capitalize;
+  margin-left: 0.5rem;
+}
+.nav-bar {
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #9b9b9b;
+  background-color: #fff;
+}
+.page-header {
+  margin-bottom: 0.5rem;
+}
+.page-label {
+  color: #9b9b9b;
+  font-weight: 300;
+}
+.page {
+  padding-top: 1rem;
+}
+.page.static-page {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+}
+.markdown-container h1,
+.markdown-container h2,
+.markdown-container h3,
+.markdown-container h4,
+.markdown-container h5,
+.markdown-container h6 {
+  margin-bottom: 0.5rem;
+}
+.markdown-container h1 {
+  font-size: 1.3125rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.markdown-container p {
+  font-size: 0.9375rem;
+  line-height: 1.33;
+  margin-bottom: 1rem;
+}
+.markdown-container p + h1,
+.markdown-container p + h2,
+.markdown-container p + h3,
+.markdown-container p + h4,
+.markdown-container p + h5,
+.markdown-container p + h6 {
+  margin-top: 1.5rem;
+}
+.components-page-header {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+}
+.components-page-preflight {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+  margin-bottom: 4rem;
+}
+.component-header {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+  margin-bottom: 1rem;
+}
+.component-footer {
+  overflow: hidden;
+  background-color: #dedede;
+  border-bottom: 3px solid #202020;
+  padding: 1.5rem;
+}
+.component-footer .dropdown {
+  float: right;
+}
+.component-label {
+  font-size: 1.3125rem;
+  font-weight: 400;
+}
+.component-state {
+  margin-top: 3rem;
+}
+.component-state-label {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+.component-state-header,
+.component-state-doc-wrapper {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+}
+.component-state-label,
+.component-state-doc {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.component-docs {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+}
+.component-preview-nav {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+}
+.content-group-nav-link.component-preview-nav-link {
+  position: relative;
+  border-bottom: none;
+  margin-bottom: -1px;
+}
+.content-group-nav-link.component-preview-nav-link:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid #dedede;
+}
+.content-group-nav-item.active .content-group-nav-link.component-preview-nav-link:after {
+  border-bottom: 1px solid #fff;
+}
+.component-preview-content {
+  border-top: 1px solid #dedede;
+  background-color: #fff;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+}
+.component {
+  margin-top: 2rem;
+}
+.content-group-item {
+  display: none;
+}
+.content-group-item.active {
+  display: block;
+}
+.content-group-nav-item {
+  display: inline;
+}
+.content-group-nav {
+  position: relative;
+}
+.content-group.standalone .content-group-nav {
+  margin-bottom: 1rem;
+}
+.content-group.standalone .content-group-nav:after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #dedede;
+  width: 100%;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.content-group-nav-link {
+  display: block;
+  background-color: #fff;
+  color: #9b9b9b;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding: 0.5rem 1rem;
+  border: 1px solid #dedede;
+  border-right: none;
+  display: inline-block;
+}
+.content-group-nav-item:last-of-type .content-group-nav-link {
+  border-right: 1px solid #dedede;
+}
+.content-group-nav-item.active .content-group-nav-link,
+.content-group-nav-item:hover .content-group-nav-link {
+  font-weight: 600;
+  color: #000005;
+}
+.content-group {
+  position: relative;
+}
+.dropdown-item {
+  display: none;
+}
+.dropdown-item:after {
+  font-family: 'Ionicons';
+  content: '\f123';
+  font-size: 0.875rem;
+  margin-left: 0.3rem;
+}
+.dropdown-item:first-of-type {
+  display: block;
+}
+.dropdown-link {
+  font-weight: 600;
+  outline: none;
+}
