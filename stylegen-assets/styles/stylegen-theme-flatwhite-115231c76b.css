@@ -414,14 +414,13 @@ a:hover {
 .main-nav-link {
   border-bottom: 1px solid #dedede;
   display: block;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1.5rem;
 }
 .main-nav > .main-nav-list > .main-nav-item > .main-nav-link {
   background-color: #dedede;
   border-color: #fff;
   color: #fff;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-top: 1.5rem;
   font-weight: 900;
   position: relative;
   padding-right: 2.5rem;

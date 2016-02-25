@@ -414,20 +414,19 @@ a:hover {
 .main-nav-link {
   border-bottom: 1px solid #dedede;
   display: block;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
 }
 .main-nav > .main-nav-list > .main-nav-item > .main-nav-link {
   background-color: #dedede;
   border-color: #fff;
   color: #fff;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-top: 1.5rem;
   font-weight: 900;
   position: relative;
   padding-right: 2.5rem;
 }
 .main-nav > .main-nav-list > .main-nav-item > .main-nav-link.has-children {
-  border-color: #575757;
+  border-color: #e6e6e6;
 }
 .main-nav > .main-nav-list > .main-nav-item > .main-nav-link:hover {
   color: #9b9b9b;
@@ -441,7 +440,4 @@ a:hover {
   -webkit-transform: translate(-50%);
   transform: translate(-50%);
   font-size: 0.875rem;
-}
-.main-nav-children > .main-nav-item > .main-nav-link {
-  font-weight: 300;
 }
