@@ -144,7 +144,7 @@
     this.$iframeBody = null;
   };
 
-  IFrameHeightObserver.prototype.checkDelay = 1500;
+  IFrameHeightObserver.prototype.checkDelay = 500;
   IFrameHeightObserver.prototype.reCheckThreshold = 30;
   IFrameHeightObserver.prototype.defaultMinHeight = 100;
 
@@ -162,8 +162,8 @@
       resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
 
       if (this.$iframeBody.attr('data-frame-height') === undefined) {
-        this.iframeBody = null;
-        this.$iframeBody = null;
+
+        console.log(this.$iframeBody[0]);
       }
     }
     return resultHeight > 0 ? resultHeight : this.defaultMinHeight;

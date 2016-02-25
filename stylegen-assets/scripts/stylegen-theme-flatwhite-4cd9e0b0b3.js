@@ -144,7 +144,7 @@
     this.$iframeBody = null;
   };
 
-  IFrameHeightObserver.prototype.checkDelay = 1500;
+  IFrameHeightObserver.prototype.checkDelay = 500;
   IFrameHeightObserver.prototype.reCheckThreshold = 30;
   IFrameHeightObserver.prototype.defaultMinHeight = 100;
 
@@ -160,12 +160,8 @@
       frameHeight = this.$iframeBody.attr('data-frame-height') || 0;
       // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
       resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
-
-      if (this.$iframeBody.attr('data-frame-height') === undefined) {
-        this.iframeBody = null;
-        this.$iframeBody = null;
-      }
     }
+    console.log(this.index, frameHeight);
     return resultHeight > 0 ? resultHeight : this.defaultMinHeight;
   };
 

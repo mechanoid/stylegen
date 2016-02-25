@@ -144,7 +144,7 @@
     this.$iframeBody = null;
   };
 
-  IFrameHeightObserver.prototype.checkDelay = 1500;
+  IFrameHeightObserver.prototype.checkDelay = 500;
   IFrameHeightObserver.prototype.reCheckThreshold = 30;
   IFrameHeightObserver.prototype.defaultMinHeight = 100;
 
@@ -156,51 +156,56 @@
   IFrameHeightObserver.prototype.getFrameHeight = function() {
     var frameHeight, bodyHeight, resultHeight = 0;
 
-    if (this.$iframeBody.length > 0) {
-      frameHeight = this.$iframeBody.attr('data-frame-height') || 0;
-      // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
-      resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
-
-      if (this.$iframeBody.attr('data-frame-height') === undefined) {
-        this.iframeBody = null;
-        this.$iframeBody = null;
+    try {
+      if (Boolean(this.iframeBody)) {
+        frameHeight = this.iframeBody.$.attr('data-frame-height') || 0;
+        // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
+        resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
       }
+    } catch (e) {
+      console.warn(e)
     }
+    console.log(this.index, frameHeight);
     return resultHeight > 0 ? resultHeight : this.defaultMinHeight;
   };
 
+  IFrameHeightObserver.prototype.reCheck = function() {
+    if (this.checkCount <= this.reCheckThreshold) {
+      this.checkCount++;
+      setTimeout(this.check.bind(this), this.checkDelay);
+      return;
+    } else {
+      console.error('IframeObserver reached Checkcount', this.index)
+    }
+  };
 
   IFrameHeightObserver.prototype.check = function() {
-    if (Boolean(this.iframeBody) === false || this.$iframeBody.length < 1) {
+    if (!this.iframeBody || this.iframeBody.$.length <= 0) {
+      try {
+        // seems that the iframe is not ready yet, and we don't have a reference to our desired content
+        this.iframeDoc = this.iframe.contentWindow.document;
+        this.iframeBody = this.iframeDoc.body;
 
-      // seems that the iframe is not ready yet, and we don't have a reference to our desired content
-      this.iframeDoc = this.iframe.contentWindow.document;
-      this.iframeBody = this.iframeDoc.body;
+        if (this.iframeBody) {
 
-      if (this.iframeBody) {
+          this.iframeBody.$ = $(this.iframeBody);
+          this.setFrameHeight(this.getFrameHeight());
+          this.checkCount = 0;
 
-        this.$iframeBody = $(this.iframeBody);
-        var currentHeight = this.getFrameHeight();
-        this.setFrameHeight(currentHeight);
+        } else { this.reCheck(); }
 
-        this.checkCount = 0;
-
-      } else {
-        console.log('cannot get iframe body', this.index)
-        if (this.checkCount <= this.reCheckThreshold) {
-          this.checkCount++;
-          setTimeout(this.check.bind(this), this.checkDelay);
-          return;
-        } else {
-          console.error('IframeObserver reached Checkcount', this.index)
+      } catch(e) {
+        if (e.name === 'TypeError') {
+          // iframe is probably not initialized yet
+          // so lets try for a while
+          this.reCheck();
         }
 
+        throw e;
       }
-
     } else {
       this.setFrameHeight(this.getFrameHeight());
     }
-
     return this;
   };
 

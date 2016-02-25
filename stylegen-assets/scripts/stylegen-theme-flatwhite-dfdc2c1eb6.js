@@ -144,7 +144,7 @@
     this.$iframeBody = null;
   };
 
-  IFrameHeightObserver.prototype.checkDelay = 1500;
+  IFrameHeightObserver.prototype.checkDelay = 500;
   IFrameHeightObserver.prototype.reCheckThreshold = 30;
   IFrameHeightObserver.prototype.defaultMinHeight = 100;
 
@@ -156,16 +156,16 @@
   IFrameHeightObserver.prototype.getFrameHeight = function() {
     var frameHeight, bodyHeight, resultHeight = 0;
 
-    if (this.$iframeBody.length > 0) {
-      frameHeight = this.$iframeBody.attr('data-frame-height') || 0;
-      // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
-      resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
-
-      if (this.$iframeBody.attr('data-frame-height') === undefined) {
-        this.iframeBody = null;
-        this.$iframeBody = null;
+    try {
+      if (this.$iframeBody.length > 0) {
+        frameHeight = this.$iframeBody.attr('data-frame-height') || 0;
+        // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
+        resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
       }
+    } catch (e) {
+      console.warn(e)
     }
+    console.log(this.index, frameHeight);
     return resultHeight > 0 ? resultHeight : this.defaultMinHeight;
   };
 
@@ -181,6 +181,7 @@
 
         this.$iframeBody = $(this.iframeBody);
         var currentHeight = this.getFrameHeight();
+        console.log('resolved iframe body', currentHeight, this.index)
         this.setFrameHeight(currentHeight);
 
         this.checkCount = 0;

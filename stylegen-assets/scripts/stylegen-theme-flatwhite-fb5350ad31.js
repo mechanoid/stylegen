@@ -162,8 +162,7 @@
       resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
 
       if (this.$iframeBody.attr('data-frame-height') === undefined) {
-        this.iframeBody = null;
-        this.$iframeBody = null;
+        this.$iframeBody = $(this.$iframeBody[0]);
       }
     }
     return resultHeight > 0 ? resultHeight : this.defaultMinHeight;
