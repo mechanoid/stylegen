@@ -389,22 +389,9 @@ a:hover {
   overflow-y: auto;
   z-index: -1;
   width: 90%;
-  max-width: 400px;
-  min-width: 300px;
   background-color: #fff;
 }
 .off-canvas-content {
   display: inline-block;
-  background-color: #fafafa;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  border-left: 10px solid #f5f5f5;
-  transition: -webkit-transform 0.5s ease;
-  transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  background-color: #f00;
 }

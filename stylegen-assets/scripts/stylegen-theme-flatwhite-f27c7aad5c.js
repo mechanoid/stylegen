@@ -30,7 +30,7 @@
   };
 
   OffCanvasNav.prototype.showNav = function() {
-    var navWidth = this.nav.width();
+    var navWidth = nav.width();
 
     this.content
     .addClass('active')
@@ -43,16 +43,15 @@
 
   OffCanvasNav.prototype.hideNav = function() {
     this.content
-    .removeClass('active')
-    .css('-moz-transform', `translateX(0px)`)
-    .css('-webkit-transform', `translateX(0px)`)
-    .css('-o-transform', `translateX(0px)`)
-    .css('-ms-transform', `translateX(0px)`)
-    .css('transform', `translateX(0px)`);
+    .addClass('active')
+    .css('-moz-transform', `translateX(px)`)
+    .css('-webkit-transform', `translateX(px)`)
+    .css('-o-transform', `translateX(px)`)
+    .css('-ms-transform', `translateX(px)`)
+    .css('transform', `translateX(px)`);
   };
 
   OffCanvasNav.prototype.toggleNav = function() {
-    console.log('toggle')
     if (this.content.hasClass('active')) {
       this.hideNav();
     } else {
@@ -60,30 +59,11 @@
     }
   };
 
-
-  var offCanvasContent = $('.off-canvas-content')[0]
-
-  var offCanvasNav = new OffCanvasNav($('.off-canvas-nav')[0], offCanvasContent);
+  var offCanvasNav = new OffCanvasNav($('off-canvas-nav')[0], $('off-canvas-content')[0]);
 
   $('.nav-toggle').on('click', function(e) {
     offCanvasNav.toggleNav();
   });
-
-  var mc = new Hammer.Manager(offCanvasContent)
-
-  // var the pan gesture support all directions.
-  // this will block the vertical scrolling on a touch-device while on the element
-  // mc.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL })
-  mc.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_HORIZONTAL }) );
-
-  mc.on("swiperight", function(ev) {
-    offCanvasNav.showNav();
-  });
-
-  mc.on("swipeleft", function(ev) {
-    offCanvasNav.hideNav();
-  });
-
 
 
 // preview-breakpoints-button
@@ -146,13 +126,11 @@
   };
 
   IFrameHeightObserver.prototype.getFrameHeight = function() {
-    var frameHeight, bodyHeight, resultHeight = 0;
+    var frameHeight, bodyHeight, resultHeight;
 
-    if (Boolean(this.iframeBody)) {
-        frameHeight = this.iframeBody.$.attr('data-frame-height') || 0;
-        // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
-        resultHeight = frameHeight // Math.max(bodyHeight, frameHeight);
-    }
+    frameHeight = this.iframeBody.$.attr('data-frame-height') || 0;
+    bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
+    resultHeight = Math.max(bodyHeight, frameHeight);
 
     return resultHeight > 0 ? resultHeight : this.defaultMinHeight;
   };

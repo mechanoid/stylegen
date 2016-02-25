@@ -54,36 +54,19 @@
   OffCanvasNav.prototype.toggleNav = function() {
     console.log('toggle')
     if (this.content.hasClass('active')) {
+      console.log('hide')
       this.hideNav();
     } else {
+      console.log('show')
       this.showNav();
     }
   };
 
-
-  var offCanvasContent = $('.off-canvas-content')[0]
-
-  var offCanvasNav = new OffCanvasNav($('.off-canvas-nav')[0], offCanvasContent);
+  var offCanvasNav = new OffCanvasNav($('.off-canvas-nav')[0], $('.off-canvas-content')[0]);
 
   $('.nav-toggle').on('click', function(e) {
     offCanvasNav.toggleNav();
   });
-
-  var mc = new Hammer.Manager(offCanvasContent)
-
-  // var the pan gesture support all directions.
-  // this will block the vertical scrolling on a touch-device while on the element
-  // mc.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL })
-  mc.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_HORIZONTAL }) );
-
-  mc.on("swiperight", function(ev) {
-    offCanvasNav.showNav();
-  });
-
-  mc.on("swipeleft", function(ev) {
-    offCanvasNav.hideNav();
-  });
-
 
 
 // preview-breakpoints-button

@@ -1,8 +1,9 @@
 {
-  "scripts/stylegen-theme-flatwhite.js": "scripts/stylegen-theme-flatwhite-67c4a31a9c.js",
-  "styles/stylegen-theme-flatwhite.css": "styles/stylegen-theme-flatwhite-2ebbaef1b8.css",
+  "scripts/stylegen-theme-flatwhite.js": "scripts/stylegen-theme-flatwhite-0b425f7d9c.js",
+  "styles/stylegen-theme-flatwhite.css": "styles/stylegen-theme-flatwhite-6b887e847b.css",
+  "vendor/hammer.js": "vendor/hammer-797b76ee63.js",
   "vendor/ionicons.min.css": "vendor/ionicons-1690997909.min.css",
-  "vendor/jquery.min.js": "vendor/jquery-6fc159d00d.min.js",
+  "vendor/jquery.js": "vendor/jquery-56f1d01ee4.js",
   "vendor/lato-font.min.css": "vendor/lato-font-34833708da.min.css",
   "vendor/prism.css": "vendor/prism-924826bb0a.css",
   "vendor/prism.js": "vendor/prism-afab50fccd.js"

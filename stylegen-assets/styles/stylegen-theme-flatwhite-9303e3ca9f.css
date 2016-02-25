@@ -403,8 +403,6 @@ a:hover {
   left: 0;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  border-left: 10px solid #f5f5f5;
-  transition: -webkit-transform 0.5s ease;
-  transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  box-shadow: -2px 0px 28px -12px rgba(0,0,0,0.75);
+  transition: all 0.5s ease;
 }

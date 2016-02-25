@@ -81,7 +81,7 @@
   });
 
   mc.on("swipeleft", function(ev) {
-    offCanvasNav.hideNav();
+    disableEl(el)
   });
 
 
