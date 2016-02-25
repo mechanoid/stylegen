@@ -153,6 +153,7 @@
   };
 
   IFrameHeightObserver.prototype.getFrameHeight = function() {
+    console.log("getFrameHeight", this.index)
     var frameHeight, bodyHeight, resultHeight = 0;
 
     try {
@@ -160,6 +161,8 @@
         frameHeight = this.iframeBody.$.attr('data-frame-height') || 0;
         // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
         resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
+      } else {
+        console.warn('NO BODY', this.index)
       }
     } catch (e) {
       console.warn(e)

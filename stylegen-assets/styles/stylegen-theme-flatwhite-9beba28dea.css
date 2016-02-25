@@ -422,19 +422,4 @@ a:hover {
   color: #fff;
   padding-top: 1.5rem;
   font-weight: 900;
-  position: relative;
-  padding-right: 2.5rem;
-}
-.main-nav > .main-nav-list > .main-nav-item > .main-nav-link:hover {
-  color: #9b9b9b;
-}
-.main-nav > .main-nav-list > .main-nav-item > .main-nav-link:after {
-  font-family: 'Ionicons';
-  content: '\f126';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  -webkit-transform: translate(-50%);
-  transform: translate(-50%);
-  font-size: 0.875rem;
 }

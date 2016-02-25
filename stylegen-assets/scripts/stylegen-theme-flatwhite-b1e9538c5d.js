@@ -160,6 +160,8 @@
         frameHeight = this.iframeBody.$.attr('data-frame-height') || 0;
         // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
         resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
+      } else {
+        console.warn('NO BODY', this.index)
       }
     } catch (e) {
       console.warn(e)
@@ -169,6 +171,7 @@
   };
 
   IFrameHeightObserver.prototype.reCheck = function() {
+    console.log("reCheck", this.index)
     if (this.checkCount <= this.reCheckThreshold) {
       this.checkCount++;
       setTimeout(this.check.bind(this), this.checkDelay);
@@ -179,12 +182,12 @@
   };
 
   IFrameHeightObserver.prototype.check = function() {
+    console.log("check", this.index)
     if (Boolean(this.iframeBody) === false) {
       try {
         // seems that the iframe is not ready yet, and we don't have a reference to our desired content
         this.iframeDoc = this.iframe.contentWindow.document;
         this.iframeBody = this.iframeDoc.body;
-
         if (this.iframeBody) {
 
           this.iframeBody.$ = $(this.iframeBody);
@@ -194,6 +197,7 @@
         } else { this.reCheck(); }
 
       } catch(e) {
+        console.warn(e.message)
         if (e.name === 'TypeError') {
           // iframe is probably not initialized yet
           // so lets try for a while
@@ -202,8 +206,6 @@
 
         throw e;
       }
-    } else {
-      this.setFrameHeight(this.getFrameHeight());
     }
     return this;
   };

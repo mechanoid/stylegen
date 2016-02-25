@@ -408,33 +408,7 @@ a:hover {
   transition: transform 0.5s ease;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
-.main-nav-list {
-  margin: 0;
-}
 .main-nav-link {
   border-bottom: 1px solid #dedede;
   display: block;
-  padding: 0.5rem 1rem;
-}
-.main-nav > .main-nav-list > .main-nav-item > .main-nav-link {
-  background-color: #dedede;
-  border-color: #fff;
-  color: #fff;
-  padding-top: 1.5rem;
-  font-weight: 900;
-  position: relative;
-  padding-right: 2.5rem;
-}
-.main-nav > .main-nav-list > .main-nav-item > .main-nav-link:hover {
-  color: #9b9b9b;
-}
-.main-nav > .main-nav-list > .main-nav-item > .main-nav-link:after {
-  font-family: 'Ionicons';
-  content: '\f126';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  -webkit-transform: translate(-50%);
-  transform: translate(-50%);
-  font-size: 0.875rem;
 }

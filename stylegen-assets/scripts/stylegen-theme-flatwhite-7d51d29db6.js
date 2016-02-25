@@ -155,27 +155,14 @@
   IFrameHeightObserver.prototype.getFrameHeight = function() {
     var frameHeight, bodyHeight, resultHeight = 0;
 
-    try {
-      if (Boolean(this.iframeBody)) {
-        frameHeight = this.iframeBody.$.attr('data-frame-height') || 0;
-        // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
-        resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
-      }
-    } catch (e) {
-      console.warn(e)
+    if (Boolean(this.iframeBody)) {
+      frameHeight = this.iframeBody.$.attr('data-frame-height') || 0;
+      console.log(this.iframeBody.$.attr('data-frame-height'), this.index)
+      // bodyHeight = Math.max(0, this.iframeBody.$.outerHeight(true) || 0);
+      resultHeight = frameHeight; // Math.max(bodyHeight, frameHeight);
     }
 
     return resultHeight > 0 ? resultHeight : this.defaultMinHeight;
-  };
-
-  IFrameHeightObserver.prototype.reCheck = function() {
-    if (this.checkCount <= this.reCheckThreshold) {
-      this.checkCount++;
-      setTimeout(this.check.bind(this), this.checkDelay);
-      return;
-    } else {
-      console.error('IframeObserver reached Checkcount', this.index)
-    }
   };
 
   IFrameHeightObserver.prototype.check = function() {
@@ -184,27 +171,23 @@
         // seems that the iframe is not ready yet, and we don't have a reference to our desired content
         this.iframeDoc = this.iframe.contentWindow.document;
         this.iframeBody = this.iframeDoc.body;
-
-        if (this.iframeBody) {
-
-          this.iframeBody.$ = $(this.iframeBody);
-          this.setFrameHeight(this.getFrameHeight());
-          this.checkCount = 0;
-
-        } else { this.reCheck(); }
-
+        this.iframeBody.$ = $(this.iframeBody);
       } catch(e) {
         if (e.name === 'TypeError') {
           // iframe is probably not initialized yet
           // so lets try for a while
-          this.reCheck();
+          if (this.checkCount <= this.reCheckThreshold) {
+            this.checkCount++;
+            setTimeout(this.check.bind(this), this.checkDelay);
+            return this;
+          }
         }
 
         throw e;
       }
-    } else {
-      this.setFrameHeight(this.getFrameHeight());
     }
+
+    this.setFrameHeight(this.getFrameHeight());
     return this;
   };
 

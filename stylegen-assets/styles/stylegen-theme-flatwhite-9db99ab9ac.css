@@ -417,16 +417,13 @@ a:hover {
   padding: 0.5rem 1rem;
 }
 .main-nav > .main-nav-list > .main-nav-item > .main-nav-link {
-  background-color: #dedede;
+  background-color: #000005;
   border-color: #fff;
   color: #fff;
   padding-top: 1.5rem;
   font-weight: 900;
   position: relative;
   padding-right: 2.5rem;
-}
-.main-nav > .main-nav-list > .main-nav-item > .main-nav-link:hover {
-  color: #9b9b9b;
 }
 .main-nav > .main-nav-list > .main-nav-item > .main-nav-link:after {
   font-family: 'Ionicons';
