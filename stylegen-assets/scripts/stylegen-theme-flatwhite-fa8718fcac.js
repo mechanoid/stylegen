@@ -61,17 +61,17 @@
   };
 
 
-  var ocContent = $('.off-canvas-content')[0];
-  var ocNav = $('.off-canvas-nav')[0];
+  var offCanvasContent = $('.off-canvas-content')[0]
+  var offCanvasNav = $('.off-canvas-nav')[0]
 
-  var offCanvasNav = new OffCanvasNav(ocNav, ocContent);
+  var offCanvasNav = new OffCanvasNav(offCanvasNav, offCanvasContent);
 
   $('.nav-toggle').on('click', function(e) {
     offCanvasNav.toggleNav();
   });
 
-  var touchContent = new Hammer.Manager(ocContent);
-  var touchNav = new Hammer.Manager(ocNav);
+  var touchContent = new Hammer.Manager(offCanvasContent);
+  var touchNav = new Hammer.Manager(offCanvasNav);
 
   // var the pan gesture support all directions.
   // this will block the vertical scrolling on a touch-device while on the element
