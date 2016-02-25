@@ -207,11 +207,13 @@ a:hover {
   width: 0.7rem;
   height: 0.7rem;
   background-color: #fff;
-  -webkit-transform: rotate(45deg) translateY(-1.5rem);
-  transform: rotate(45deg) translateY(-1.5rem);
+  -webkit-transform: rotate(45deg) translateX(-50%);
+  transform: rotate(45deg) translateX(-50%);
   position: absolute;
   bottom: 100%;
   left: 50%;
+  -webkit-transform: translateY(-1rem);
+  transform: translateY(-1rem);
 }
 .component-label {
   font-size: 1.3125rem;
