@@ -224,9 +224,6 @@ a:hover {
 .component-state {
   margin-top: 3rem;
 }
-.component-state .component-preview-content {
-  padding-bottom: 3rem;
-}
 .component-state-label {
   font-size: 1.25rem;
   font-weight: 300;
@@ -252,10 +249,7 @@ a:hover {
   bottom: 0;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  padding: 0 1rem 1rem 0.7rem;
-}
-.component-state-content .dropdown .dropdown-link {
-  color: #9b9b9b;
+  padding: 1rem 1rem;
 }
 .component-state-content .dropdown .dropdown-link:before {
   font-size: 1.2rem;
@@ -263,10 +257,6 @@ a:hover {
 }
 .component-state-content .dropdown .dropdown-link.ion-iphone:before {
   font-size: 1rem;
-}
-.component-state-content .dropdown .dropdown-item.active .dropdown-link,
-.component-state-content .dropdown .dropdown-link:hover:before {
-  color: #000005;
 }
 .component-docs {
   padding-left: 1.375rem;
