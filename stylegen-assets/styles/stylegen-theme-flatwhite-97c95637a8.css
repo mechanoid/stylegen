@@ -460,12 +460,9 @@ a:hover {
 }
 .preview-breakpoints {
   text-align: center;
-}
-.preview-breakpoints .preview {
   margin-left: auto;
   margin-right: auto;
-  transition: all 0.5s ease;
 }
-.preview-breakpoints-item.active .preview-breakpoints-button {
-  color: #fff;
+.preview-breakpoints .preview {
+  transition: all 0.5s ease;
 }

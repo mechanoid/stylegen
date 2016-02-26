@@ -118,12 +118,12 @@
     root = link.closest('.preview-breakpoints-root');
     breakpoints = root.find('.preview-breakpoints');
     // console.log(breakpoints)
-    links = root.find('.preview-breakpoints-item');
+    links = breakpoints.find('.preview-breakpoints-item');
     preview = breakpoints.find('.preview');
 
     // console.log(preview)
     alreadyActive = linkItem.hasClass('active') ? true : false;
-
+    console.log(alreadyActive)
     links.removeClass('active');
     preview.css('margin-left', 'auto');
 

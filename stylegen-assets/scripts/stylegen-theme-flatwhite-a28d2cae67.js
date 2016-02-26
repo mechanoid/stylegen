@@ -119,6 +119,7 @@
     breakpoints = root.find('.preview-breakpoints');
     // console.log(breakpoints)
     links = root.find('.preview-breakpoints-item');
+    console.log(links)
     preview = breakpoints.find('.preview');
 
     // console.log(preview)

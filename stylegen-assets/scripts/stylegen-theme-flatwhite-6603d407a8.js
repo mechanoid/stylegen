@@ -112,13 +112,13 @@
     link = $(e.target);
     // console.log(e.target, link, link.data('width'))
     newWidth = link.data('width');
-
+    console.log(newWidth)
     linkItem = link.closest('.preview-breakpoints-item');
 
     root = link.closest('.preview-breakpoints-root');
     breakpoints = root.find('.preview-breakpoints');
     // console.log(breakpoints)
-    links = root.find('.preview-breakpoints-item');
+    links = breakpoints.find('.preview-breakpoints-item');
     preview = breakpoints.find('.preview');
 
     // console.log(preview)

@@ -358,16 +358,6 @@ a:hover {
 }
 .dropdown-link:before {
   font-size: 2rem;
-  margin-left: 0.8rem;
-}
-.dropdown-link.ion-iphone:before {
-  font-size: 1.8rem;
-}
-.dropdown-link.ion-iphone.phablet:before {
-  font-size: 2rem;
-}
-.dropdown-link:hover:before {
-  color: #fff;
 }
 .anchor-menu-list {
   padding: 0 0.5rem 1rem 0.5rem;
@@ -457,15 +447,4 @@ a:hover {
 }
 .main-nav-children > .main-nav-item > .main-nav-link {
   font-weight: 300;
-}
-.preview-breakpoints {
-  text-align: center;
-}
-.preview-breakpoints .preview {
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 0.5s ease;
-}
-.preview-breakpoints-item.active .preview-breakpoints-button {
-  color: #fff;
 }

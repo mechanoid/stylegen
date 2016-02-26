@@ -106,45 +106,42 @@
   // preview-breakpoints-button
   // **********************************************************
   $('.preview-breakpoints-button').on('click', function(e) {
-    var link, links, root, preview, linkItem, alreadyActive, newWidth, parentWidth, offset, breakpoints;
+    var link, links, root, preview, linkItem, alreadyActive, parent, newWidth, parentWidth, offset;
     e.preventDefault();
 
     link = $(e.target);
-    // console.log(e.target, link, link.data('width'))
-    newWidth = link.data('width');
-
     linkItem = link.closest('.preview-breakpoints-item');
 
-    root = link.closest('.preview-breakpoints-root');
-    breakpoints = root.find('.preview-breakpoints');
-    // console.log(breakpoints)
-    links = root.find('.preview-breakpoints-item');
-    preview = breakpoints.find('.preview');
+    root = link.parents('.preview-breakpoints-root');
+    console.log(root);
+    // parent = root.parent();
+    // links = root.find('.preview-breakpoints-item');
+    // preview = root.find('.preview');
+    //
+    // alreadyActive = linkItem.hasClass('active') ? true : false;
 
-    // console.log(preview)
-    alreadyActive = linkItem.hasClass('active') ? true : false;
-
-    links.removeClass('active');
-    preview.css('margin-left', 'auto');
-
-    linkItem.toggleClass('active');
-
-    if (alreadyActive) {
-      linkItem.toggleClass('active');
-    }
-
-    if (linkItem.hasClass('active')) {
-      parentWidth = breakpoints.innerWidth();
-      preview.css("width", newWidth + 'px');
-
-      if (newWidth > parentWidth) {
-        offset = ((newWidth - parentWidth) / 2 * -1);
-
-        preview.css('margin-left', offset + 'px');
-      };
-    } else {
-      preview.css("width", "100%");
-    }
+    // links.removeClass('active');
+    // preview.css('margin-left', '0px');
+    //
+    // linkItem.toggleClass('active');
+    //
+    // if (alreadyActive) {
+    //   linkItem.toggleClass('active');
+    // }
+    //
+    // if (linkItem.hasClass('active')) {
+    //   newWidth = link.data('width');
+    //   parentWidth = parent.innerWidth();
+    //   preview.css("width", newWidth + 'px');
+    //
+    //   if (newWidth > parentWidth) {
+    //     offset = ((newWidth - parentWidth) / 2 * -1);
+    //
+    //     preview.css('margin-left', offset + 'px');
+    //   };
+    // } else {
+    //   preview.css("width", "100%");
+    // }
   });
 
 

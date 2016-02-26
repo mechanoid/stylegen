@@ -1,9 +1,6 @@
 (function($){
   "use strict";
 
-  // **********************************************************
-  // tab behavior
-  // **********************************************************
   $('.content-group .content-group-nav-link').on('click', function(e) {
     var tabs, link, navItem;
     e.preventDefault();
@@ -19,11 +16,6 @@
 
 
 
-
-
-  // **********************************************************
-  // off-canvas nav
-  // **********************************************************
   var OffCanvasNav = function(nav, content) {
     if (!nav) {
       console.error("Off-Canvas Navigation not found", nav);
@@ -101,31 +93,23 @@
 
 
 
-
-  // **********************************************************
-  // preview-breakpoints-button
-  // **********************************************************
+// preview-breakpoints-button
+//
   $('.preview-breakpoints-button').on('click', function(e) {
-    var link, links, root, preview, linkItem, alreadyActive, newWidth, parentWidth, offset, breakpoints;
+    var link, links, root, preview, linkItem, alreadyActive, parent, newWidth, parentWidth, offset;
     e.preventDefault();
 
     link = $(e.target);
-    // console.log(e.target, link, link.data('width'))
-    newWidth = link.data('width');
-
     linkItem = link.closest('.preview-breakpoints-item');
-
-    root = link.closest('.preview-breakpoints-root');
-    breakpoints = root.find('.preview-breakpoints');
-    // console.log(breakpoints)
+    root = link.closest('.preview-breakpoints');
+    parent = root.parent();
     links = root.find('.preview-breakpoints-item');
-    preview = breakpoints.find('.preview');
+    preview = root.find('.preview');
 
-    // console.log(preview)
     alreadyActive = linkItem.hasClass('active') ? true : false;
 
     links.removeClass('active');
-    preview.css('margin-left', 'auto');
+    preview.css('margin-left', '0px');
 
     linkItem.toggleClass('active');
 
@@ -134,7 +118,8 @@
     }
 
     if (linkItem.hasClass('active')) {
-      parentWidth = breakpoints.innerWidth();
+      newWidth = link.data('width');
+      parentWidth = parent.innerWidth();
       preview.css("width", newWidth + 'px');
 
       if (newWidth > parentWidth) {
@@ -148,12 +133,6 @@
   });
 
 
-
-
-
-  // **********************************************************
-  // iframe height observer
-  // **********************************************************
   var IFrameHeightObserver = function(iframe, index) {
     this.iframe = iframe;
     this.index = index;
@@ -207,6 +186,7 @@
         this.checkCount = 0;
 
       } else {
+        console.log('cannot get iframe body', this.index)
         if (this.checkCount <= this.reCheckThreshold) {
           this.checkCount++;
           setTimeout(this.check.bind(this), this.checkDelay);

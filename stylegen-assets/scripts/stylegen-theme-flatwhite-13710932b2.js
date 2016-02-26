@@ -118,7 +118,8 @@
     root = link.closest('.preview-breakpoints-root');
     breakpoints = root.find('.preview-breakpoints');
     // console.log(breakpoints)
-    links = root.find('.preview-breakpoints-item');
+    links = breakpoints.find('.preview-breakpoints-item');
+    console.log(links)
     preview = breakpoints.find('.preview');
 
     // console.log(preview)

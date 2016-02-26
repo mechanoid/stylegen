@@ -110,31 +110,28 @@
     e.preventDefault();
 
     link = $(e.target);
-    // console.log(e.target, link, link.data('width'))
-    newWidth = link.data('width');
-
     linkItem = link.closest('.preview-breakpoints-item');
 
     root = link.closest('.preview-breakpoints-root');
     breakpoints = root.find('.preview-breakpoints');
-    // console.log(breakpoints)
-    links = root.find('.preview-breakpoints-item');
+    console.log(breakpoints)
+    links = breakpoints.find('.preview-breakpoints-item');
     preview = breakpoints.find('.preview');
 
-    // console.log(preview)
     alreadyActive = linkItem.hasClass('active') ? true : false;
 
     links.removeClass('active');
-    preview.css('margin-left', 'auto');
+    preview.css('margin-left', '0px');
 
     linkItem.toggleClass('active');
 
     if (alreadyActive) {
       linkItem.toggleClass('active');
     }
-
+    //
     if (linkItem.hasClass('active')) {
-      parentWidth = breakpoints.innerWidth();
+      newWidth = link.data('width');
+      parentWidth = parent.innerWidth();
       preview.css("width", newWidth + 'px');
 
       if (newWidth > parentWidth) {
